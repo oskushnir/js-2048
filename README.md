@@ -66,4 +66,4 @@ Dynamic Tile Creation:
   The game continues until the player reaches the 2048 tile (win) or there are no more valid moves (lose).
   The user can restart the game at any time by clicking the "Restart" button.
 
-6. Link to preview: https://oskushnir.github.io/js_2048
+6. Link to preview: https://oskushnir.github.io/js-2048
