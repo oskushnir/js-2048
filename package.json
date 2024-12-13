@@ -17,6 +17,8 @@
   "author": "Mate Academy",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.25.9",
     "@linthtml/linthtml": "^0.9.6",
     "@mate-academy/eslint-config": "latest",
     "@mate-academy/linthtml-config": "latest",

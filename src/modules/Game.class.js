@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Game {
   constructor(
@@ -10,17 +10,17 @@ class Game {
     ],
   ) {
     this.initialState = initialState;
-    this.gameStatus = 'idle';
+    this.gameStatus = "idle";
     this.score = 0;
   }
 
   moveLeft(rows) {
-    if (this.gameStatus === 'playing') {
+    if (this.gameStatus === "playing") {
       const arrayOfRows = Array.from(rows);
 
       const gridBeforeMove = arrayOfRows.map(
         (row) =>
-          Array.from(row.querySelectorAll('td')).map(
+          Array.from(row.querySelectorAll("td")).map(
             (cell) => cell.textContent.trim(),
             // eslint-disable-next-line no-console
           ),
@@ -30,7 +30,7 @@ class Game {
       const nonEmptyCells = [];
 
       rows.forEach((row, rowIndex) => {
-        const cells = row.querySelectorAll('td');
+        const cells = row.querySelectorAll("td");
 
         cells.forEach((cell, cellIndex) => {
           if (cell.textContent.trim().length > 0) {
@@ -51,7 +51,7 @@ class Game {
         while (targetCellIndex > 0) {
           const previousRow = rows[rowIndex];
           const previousCell =
-            previousRow.querySelectorAll('td')[targetCellIndex - 1];
+            previousRow.querySelectorAll("td")[targetCellIndex - 1];
 
           if (previousCell.textContent.trim().length === 0) {
             targetCellIndex--;
@@ -67,12 +67,12 @@ class Game {
               this.getScore(newCellValue);
 
               if (newCellValue === 2048) {
-                this.gameStatus = 'win';
+                this.gameStatus = "win";
               }
             } else {
               const currentRow = rows[rowIndex];
               const currentCell =
-                currentRow.querySelectorAll('td')[targetCellIndex];
+                currentRow.querySelectorAll("td")[targetCellIndex];
 
               currentCell.textContent = cellNumber;
               currentCell.className = `field-cell field-cell--${cellNumber}`;
@@ -83,7 +83,7 @@ class Game {
         }
 
         const finalRow = rows[rowIndex];
-        const finalCell = finalRow.querySelectorAll('td')[targetCellIndex];
+        const finalCell = finalRow.querySelectorAll("td")[targetCellIndex];
 
         finalCell.textContent = cellNumber;
         finalCell.className = `field-cell field-cell--${cellNumber}`;
@@ -91,7 +91,7 @@ class Game {
 
       const gridAfterMove = arrayOfRows.map(
         (row) =>
-          Array.from(row.querySelectorAll('td')).map(
+          Array.from(row.querySelectorAll("td")).map(
             (cell) => cell.textContent.trim(),
             // eslint-disable-next-line no-console
           ),
@@ -113,12 +113,12 @@ class Game {
   }
 
   moveRight(rows) {
-    if (this.gameStatus === 'playing') {
+    if (this.gameStatus === "playing") {
       const arrayOfRows = Array.from(rows);
 
       const gridBeforeMove = arrayOfRows.map(
         (row) =>
-          Array.from(row.querySelectorAll('td')).map(
+          Array.from(row.querySelectorAll("td")).map(
             (cell) => cell.textContent.trim(),
             // eslint-disable-next-line no-console
           ),
@@ -128,7 +128,7 @@ class Game {
       const nonEmptyCells = [];
 
       rows.forEach((row, rowIndex) => {
-        const cells = row.querySelectorAll('td');
+        const cells = row.querySelectorAll("td");
 
         for (let cellIndex = cells.length - 1; cellIndex >= 0; cellIndex--) {
           const cell = cells[cellIndex];
@@ -148,9 +148,9 @@ class Game {
       nonEmptyCells.forEach(({ rowIndex, cellIndex, cellNumber }) => {
         let targetCellIndex = cellIndex;
 
-        while (targetCellIndex < rows[0].querySelectorAll('td').length - 1) {
+        while (targetCellIndex < rows[0].querySelectorAll("td").length - 1) {
           const nextRow = rows[rowIndex];
-          const nextCell = nextRow.querySelectorAll('td')[targetCellIndex + 1];
+          const nextCell = nextRow.querySelectorAll("td")[targetCellIndex + 1];
 
           if (nextCell.textContent.trim().length === 0) {
             targetCellIndex++;
@@ -166,12 +166,12 @@ class Game {
               this.getScore(newCellValue);
 
               if (newCellValue === 2048) {
-                this.gameStatus = 'win';
+                this.gameStatus = "win";
               }
             } else {
               const currentRow = rows[rowIndex];
               const currentCell =
-                currentRow.querySelectorAll('td')[targetCellIndex];
+                currentRow.querySelectorAll("td")[targetCellIndex];
 
               currentCell.textContent = cellNumber;
               currentCell.className = `field-cell field-cell--${cellNumber}`;
@@ -182,7 +182,7 @@ class Game {
         }
 
         const finalRow = rows[rowIndex];
-        const finalCell = finalRow.querySelectorAll('td')[targetCellIndex];
+        const finalCell = finalRow.querySelectorAll("td")[targetCellIndex];
 
         finalCell.textContent = cellNumber;
         finalCell.className = `field-cell field-cell--${cellNumber}`;
@@ -190,7 +190,7 @@ class Game {
 
       const gridAfterMove = arrayOfRows.map(
         (row) =>
-          Array.from(row.querySelectorAll('td')).map(
+          Array.from(row.querySelectorAll("td")).map(
             (cell) => cell.textContent.trim(),
             // eslint-disable-next-line no-console
           ),
@@ -212,12 +212,12 @@ class Game {
   }
 
   moveUp(rows) {
-    if (this.gameStatus === 'playing') {
+    if (this.gameStatus === "playing") {
       const arrayOfRows = Array.from(rows);
 
       const gridBeforeMove = arrayOfRows.map(
         (row) =>
-          Array.from(row.querySelectorAll('td')).map(
+          Array.from(row.querySelectorAll("td")).map(
             (cell) => cell.textContent.trim(),
             // eslint-disable-next-line no-console
           ),
@@ -227,7 +227,7 @@ class Game {
       const nonEmptyCells = [];
 
       rows.forEach((row, rowIndex) => {
-        const cells = row.querySelectorAll('td');
+        const cells = row.querySelectorAll("td");
 
         cells.forEach((cell, cellIndex) => {
           if (cell.textContent.trim().length > 0) {
@@ -247,7 +247,7 @@ class Game {
 
         while (targetRowIndex > 0) {
           const previousRow = rows[targetRowIndex - 1];
-          const previousCell = previousRow.querySelectorAll('td')[cellIndex];
+          const previousCell = previousRow.querySelectorAll("td")[cellIndex];
 
           if (previousCell.textContent.trim().length === 0) {
             targetRowIndex--;
@@ -263,11 +263,11 @@ class Game {
               this.getScore(newCellValue);
 
               if (newCellValue === 2048) {
-                this.gameStatus = 'win';
+                this.gameStatus = "win";
               }
             } else {
               const currentRow = rows[targetRowIndex];
-              const currentCell = currentRow.querySelectorAll('td')[cellIndex];
+              const currentCell = currentRow.querySelectorAll("td")[cellIndex];
 
               currentCell.textContent = cellNumber;
               currentCell.className = `field-cell field-cell--${cellNumber}`;
@@ -278,7 +278,7 @@ class Game {
         }
 
         const finalRow = rows[targetRowIndex];
-        const finalCell = finalRow.querySelectorAll('td')[cellIndex];
+        const finalCell = finalRow.querySelectorAll("td")[cellIndex];
 
         finalCell.textContent = cellNumber;
         finalCell.className = `field-cell field-cell--${cellNumber}`;
@@ -286,7 +286,7 @@ class Game {
 
       const gridAfterMove = arrayOfRows.map(
         (row) =>
-          Array.from(row.querySelectorAll('td')).map(
+          Array.from(row.querySelectorAll("td")).map(
             (cell) => cell.textContent.trim(),
             // eslint-disable-next-line no-console
           ),
@@ -308,12 +308,12 @@ class Game {
   }
 
   moveDown(rows) {
-    if (this.gameStatus === 'playing') {
+    if (this.gameStatus === "playing") {
       const arrayOfRows = Array.from(rows);
 
       const gridBeforeMove = arrayOfRows.map(
         (row) =>
-          Array.from(row.querySelectorAll('td')).map(
+          Array.from(row.querySelectorAll("td")).map(
             (cell) => cell.textContent.trim(),
             // eslint-disable-next-line no-console
           ),
@@ -323,7 +323,7 @@ class Game {
       const nonEmptyCells = [];
 
       for (let rowIndex = rows.length - 1; rowIndex >= 0; rowIndex--) {
-        const cells = rows[rowIndex].querySelectorAll('td');
+        const cells = rows[rowIndex].querySelectorAll("td");
 
         cells.forEach((cell, cellIndex) => {
           if (cell.textContent.trim().length > 0) {
@@ -343,7 +343,7 @@ class Game {
 
         while (targetRowIndex < rows.length - 1) {
           const nextRow = rows[targetRowIndex + 1];
-          const nextCell = nextRow.querySelectorAll('td')[cellIndex];
+          const nextCell = nextRow.querySelectorAll("td")[cellIndex];
 
           if (nextCell.textContent.trim().length === 0) {
             targetRowIndex++;
@@ -359,11 +359,11 @@ class Game {
               this.getScore(newCellValue);
 
               if (newCellValue === 2048) {
-                this.gameStatus = 'win';
+                this.gameStatus = "win";
               }
             } else {
               const currentRow = rows[targetRowIndex];
-              const currentCell = currentRow.querySelectorAll('td')[cellIndex];
+              const currentCell = currentRow.querySelectorAll("td")[cellIndex];
 
               currentCell.textContent = cellNumber;
               currentCell.className = `field-cell field-cell--${cellNumber}`;
@@ -374,7 +374,7 @@ class Game {
         }
 
         const finalRow = rows[targetRowIndex];
-        const finalCell = finalRow.querySelectorAll('td')[cellIndex];
+        const finalCell = finalRow.querySelectorAll("td")[cellIndex];
 
         finalCell.textContent = cellNumber;
         finalCell.className = `field-cell field-cell--${cellNumber}`;
@@ -382,7 +382,7 @@ class Game {
 
       const gridAfterMove = arrayOfRows.map(
         (row) =>
-          Array.from(row.querySelectorAll('td')).map(
+          Array.from(row.querySelectorAll("td")).map(
             (cell) => cell.textContent.trim(),
             // eslint-disable-next-line no-console
           ),
@@ -415,7 +415,7 @@ class Game {
     const arrayOfRows = [];
 
     rows.forEach((row) => {
-      const cells = row.querySelectorAll('td');
+      const cells = row.querySelectorAll("td");
 
       const arrayOfCell = [];
 
@@ -436,12 +436,12 @@ class Game {
   }
 
   start(rows) {
-    this.gameStatus = 'playing';
+    this.gameStatus = "playing";
 
     let isEmpty = true;
 
     rows.forEach((row) => {
-      const cells = row.querySelectorAll('td');
+      const cells = row.querySelectorAll("td");
 
       cells.forEach((cell) => {
         if (cell.textContent.trim().length > 0) {
@@ -454,7 +454,7 @@ class Game {
   }
 
   restart(rows) {
-    this.gameStatus = 'idle';
+    this.gameStatus = "idle";
 
     this.score = 0;
 
@@ -593,7 +593,7 @@ class Game {
     const arrayOfEmptyCells = [];
 
     rows.forEach((row, rowIndex) => {
-      const cells = row.querySelectorAll('td');
+      const cells = row.querySelectorAll("td");
 
       cells.forEach((cell, cellIndex) => {
         if (cell.textContent.trim().length === 0) {
@@ -613,7 +613,7 @@ class Game {
     gridAfterMove.forEach((row) => {
       if (
         row.length === 4 &&
-        !row.includes('') &&
+        !row.includes("") &&
         isCellsFullHorizontally.length < 4
       ) {
         const isCellFull = [];
@@ -638,8 +638,8 @@ class Game {
       if (
         currentRow.length === 4 &&
         nextRow.length === 4 &&
-        !currentRow.includes('') &&
-        !nextRow.includes('')
+        !currentRow.includes("") &&
+        !nextRow.includes("")
       ) {
         for (let j = 0; j < currentRow.length; j++) {
           if (currentRow[j] !== nextRow[j]) {
@@ -657,30 +657,30 @@ class Game {
       isCellsFullHorizontally.length === 4 &&
       isCellsFullVertically.length === 3
     ) {
-      this.gameStatus = 'lose';
+      this.gameStatus = "lose";
     }
   }
 
   removeCell(rows) {
     rows.forEach((row) => {
-      const cells = row.querySelectorAll('td');
+      const cells = row.querySelectorAll("td");
 
       cells.forEach((cell) => {
         if (cell.textContent.length > 0) {
-          cell.className = 'field-cell';
-          cell.innerHTML = '';
+          cell.className = "field-cell";
+          cell.innerHTML = "";
         }
       });
     });
   }
 
   changeMessage(startMessage) {
-    if (this.gameStatus === 'playing') {
-      startMessage.classList.add('hidden');
+    if (this.gameStatus === "playing") {
+      startMessage.classList.add("hidden");
     }
 
-    if (this.gameStatus === 'idle') {
-      startMessage.classList.remove('hidden');
+    if (this.gameStatus === "idle") {
+      startMessage.classList.remove("hidden");
     }
   }
 }
